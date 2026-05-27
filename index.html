@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Tasyakuran Rumah Baru</title>
     
-    <!-- Konfigurasi Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,7 +30,6 @@
         }
     </script>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -39,9 +37,7 @@
     <style>
         /* Animasi Custom */
         body { scroll-behavior: smooth; }
-        
         .fade-in { opacity: 0; animation: fadeIn 1.5s ease-in forwards; }
-        
         @keyframes fadeIn { to { opacity: 1; } }
 
         /* Overlay Cover */
@@ -92,34 +88,25 @@
         }
 
         /* Animasi Muter untuk Ikon Musik */
-        .spin-slow {
-            animation: spin 4s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        .spin-slow { animation: spin 4s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased bg-gray-100 overflow-hidden" id="body">
+<body class="font-sans text-gray-800 antialiased bg-gray-100 overflow-x-hidden" id="body">
 
-    <!-- ELEMEN AUDIO MUSIK LATAR -->
-    <!-- (Link musik instrumen akustik islami/relaksasi gratis & stabil) -->
     <audio id="bg-music" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=relaxing-mountains-rivers-streams-111162.mp3" type="audio/mpeg">
         Browser Anda tidak mendukung elemen audio.
     </audio>
 
-    <!-- TOMBOL MUSIK MELAYANG (FLOATING BUTTON) -->
     <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-50 bg-white/80 backdrop-blur-sm border border-gold p-3 rounded-full shadow-xl text-gold hover:bg-gold hover:text-white transition duration-300 hidden">
         <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v5.586l-2.707 2.707 1.414 1.414L13 13.414V7z"/>
         </svg>
     </button>
 
-    <!-- 1. COVER / HALAMAN DEPAN -->
     <div id="cover-overlay" class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-sage floral-bg text-center p-6">
-        <div class="bg-white/95 p-8 rounded-3xl shadow-2xl max-w-md w-full border-2 border-gold/40 fade-in relative overflow-hidden">
+        <div class="bg-white/95 p-8 rounded-3xl shadow-2xl max-w-lg w-full border-2 border-gold/40 fade-in relative overflow-hidden">
             <div class="flex justify-center mb-4 text-terracotta">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -127,15 +114,15 @@
             </div>
             <p class="text-sm tracking-widest uppercase text-darksage mb-1 font-semibold">Tasyakuran Rumah Baru</p>
             
-            <h1 class="font-serif text-2xl sm:text-[1.7rem] text-darksage font-bold my-4 leading-snug">
+            <h1 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-darksage font-bold my-4 leading-snug">
                 Dr. Nur Kautsar Hasan, S.H., M.H.
-                <span class="block text-gold text-lg my-1 font-script">&</span>
+                <span class="block text-gold text-lg lg:text-2xl my-2 font-script">&</span>
                 Salmirati, S.H., M.H.
             </h1>
             
-            <div class="my-6">
-                <p class="text-xs text-gray-500 mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                <h2 id="guest-name-cover" class="font-serif text-2xl text-gold font-bold italic">Tamu Undangan</h2>
+            <div class="my-8">
+                <p class="text-xs lg:text-sm text-gray-500 mb-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                <h2 id="guest-name-cover" class="font-serif text-2xl lg:text-3xl text-gold font-bold italic">Tamu Undangan</h2>
             </div>
             <button onclick="openInvitation()" class="mt-4 bg-darksage hover:bg-sage text-white font-medium py-3 px-8 rounded-full transition duration-300 shadow-md flex items-center justify-center gap-2 mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -147,21 +134,18 @@
         </div>
     </div>
 
-    <!-- 2. KONTEN UTAMA UNDANGAN -->
-    <main id="main-content" class="max-w-lg mx-auto bg-lightbg floral-bg min-h-screen shadow-2xl hidden flex flex-col relative">
+    <main id="main-content" class="w-full max-w-4xl mx-auto bg-lightbg floral-bg min-h-screen shadow-2xl hidden flex flex-col relative overflow-hidden">
         
-        <!-- Element untuk efek Blink saat di scroll -->
         <div id="scroll-blink-overlay"></div>
 
         <div class="flex-grow relative z-10">
-            <!-- Header Pembuka -->
-            <header class="pt-12 pb-8 px-8 text-center text-darksage">
+            <header class="pt-16 pb-8 px-6 lg:px-16 text-center text-darksage">
                 
-                <div class="reveal-zoom mb-10">
-                    <h2 class="font-luxury text-3xl sm:text-4xl font-extrabold text-gold glow-text mb-4 uppercase leading-snug">
+                <div class="reveal-zoom mb-12">
+                    <h2 class="font-luxury text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gold glow-text mb-6 uppercase leading-snug">
                         Undangan Tasyakuran
                     </h2>
-                    <div class="w-full max-w-[320px] mx-auto text-darksage opacity-70">
+                    <div class="w-full max-w-[320px] lg:max-w-[400px] mx-auto text-darksage opacity-70">
                         <svg viewBox="0 0 400 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M200,6 L205,12 L200,18 L195,12 Z" fill="currentColor" stroke="none"/>
                             <path d="M40,12 L185,12" stroke-width="1.5" />
@@ -176,21 +160,20 @@
                     </div>
                 </div>
                 
-                <div class="reveal-zoom">
-                    <h2 class="font-arabic text-4xl text-darksage mb-3 leading-normal">
+                <div class="reveal-zoom lg:max-w-2xl mx-auto">
+                    <h2 class="font-arabic text-4xl lg:text-5xl text-darksage mb-4 leading-normal">
                         بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
                     </h2>
-                    <h3 class="font-bold text-lg text-darksage mb-4">
+                    <h3 class="font-bold text-lg lg:text-xl text-darksage mb-6">
                         Assalamu'alaikum Wr. Wb.
                     </h3>
-                    <p class="text-sm leading-relaxed mt-2 font-medium">
+                    <p class="text-sm lg:text-base leading-relaxed mt-2 font-medium">
                         Sebagai ungkapan rasa syukur atas rahmat dan karunia Allah SWT yang telah memberikan kami tempat tinggal yang baru, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara Tasyakuran kami.
                     </p>
                 </div>
             </header>
 
-            <!-- Garis Pemisah 1 -->
-            <div class="w-full max-w-[250px] mx-auto text-sage opacity-50 my-2 reveal-zoom">
+            <div class="w-full max-w-[250px] lg:max-w-[400px] mx-auto text-sage opacity-50 my-4 reveal-zoom">
                 <svg viewBox="0 0 400 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M200,6 L205,12 L200,18 L195,12 Z" fill="currentColor" stroke="none"/>
                     <path d="M40,12 L185,12" stroke-width="1.5" /><path d="M40,15 L180,15" stroke-width="0.5" /><path d="M40,9 L180,9" stroke-width="0.5" /><path d="M40,12 C25,12 20,4 10,8 C0,12 10,20 20,16 C30,12 25,6 15,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -198,99 +181,85 @@
                 </svg>
             </div>
 
-            <!-- Detail Acara -->
-            <section class="py-8 px-6 reveal-fade-up">
-                <div class="bg-white/95 rounded-3xl shadow-xl shadow-sage/20 border border-sage/30 p-8 text-center relative overflow-hidden">
-                    <h3 class="font-serif text-2xl font-bold text-darksage mb-5">Waktu & Tempat</h3>
-                    
-                    <div class="mb-4">
-                        <p class="text-gold font-bold uppercase tracking-wider text-sm mb-1">Jumat</p>
-                        <p class="font-serif text-5xl font-bold text-darksage drop-shadow-sm">29</p>
-                        <p class="text-gray-600 font-medium mt-1">Mei 2026</p>
-                    </div>
-
-                    <div class="mb-5 border-t border-b border-gray-100 py-3">
-                        <p class="text-base text-gray-800 font-bold">Pukul 11.00 WITA - 17.00 WITA</p>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-center text-terracotta mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <h4 class="font-bold text-darksage mb-2">Alamat Rumah Baru Kami</h4>
-                        <p class="text-sm text-gray-600 leading-relaxed font-medium">
-                            Jl. Mapala (Samping IKIP)<br>
-                            Komp. Graha Mapala Permai, Blok B No. 4<br>
-                            Makassar
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Garis Pemisah 2 -->
-            <div class="w-full max-w-[250px] mx-auto text-sage opacity-50 my-2 reveal-zoom">
-                <svg viewBox="0 0 400 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M200,6 L205,12 L200,18 L195,12 Z" fill="currentColor" stroke="none"/>
-                    <path d="M40,12 L185,12" stroke-width="1.5" /><path d="M40,15 L180,15" stroke-width="0.5" /><path d="M40,9 L180,9" stroke-width="0.5" /><path d="M40,12 C25,12 20,4 10,8 C0,12 10,20 20,16 C30,12 25,6 15,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <path d="M360,12 L215,12" stroke-width="1.5" /><path d="M360,15 L220,15" stroke-width="0.5" /><path d="M360,9 L220,9" stroke-width="0.5" /><path d="M360,12 C375,12 380,4 390,8 C400,12 390,20 380,16 C370,12 375,6 385,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                </svg>
-            </div>
-
-            <!-- Peta Lokasi -->
-            <section class="py-6 px-6 mb-4 reveal-fade-up">
-                <h3 class="font-serif text-2xl font-bold text-darksage mb-5 text-center">Peta Lokasi</h3>
-                <div class="rounded-3xl overflow-hidden shadow-xl shadow-sage/20 border border-sage/30 bg-white/95 p-2">
-                    <div class="relative w-full pb-[100%] rounded-2xl overflow-hidden">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=Jl.%20Mapala%20komp.%20Graha%20Mapala%20Permai%20Blok%20B%20No.4%20Makassar&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                            class="absolute top-0 left-0 w-full h-full border-0" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                    <div class="mt-5 text-center pb-3">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Jl.+Mapala+Komp.+Graha+Mapala+Permai+Blok+B+No.4+Makassar" target="_blank" class="inline-block bg-white border-2 border-darksage text-darksage hover:bg-darksage hover:text-white transition py-2 px-6 rounded-full text-sm font-bold shadow-sm relative z-10">
-                            Buka Rute di Google Maps
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Garis Pemisah Akhir -->
-            <div class="w-full max-w-[250px] mx-auto text-sage opacity-50 mb-8 reveal-zoom">
-                <svg viewBox="0 0 400 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M200,6 L205,12 L200,18 L195,12 Z" fill="currentColor" stroke="none"/>
-                    <path d="M40,12 L185,12" stroke-width="1.5" /><path d="M40,15 L180,15" stroke-width="0.5" /><path d="M40,9 L180,9" stroke-width="0.5" /><path d="M40,12 C25,12 20,4 10,8 C0,12 10,20 20,16 C30,12 25,6 15,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <path d="M360,12 L215,12" stroke-width="1.5" /><path d="M360,15 L220,15" stroke-width="0.5" /><path d="M360,9 L220,9" stroke-width="0.5" /><path d="M360,12 C375,12 380,4 390,8 C400,12 390,20 380,16 C370,12 375,6 385,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                </svg>
-            </div>
-
-            <!-- PENUTUP & NAMA HORMAT KAMI -->
-            <section class="py-14 px-6 bg-darksage text-white text-center rounded-t-[3rem] shadow-inner relative overflow-hidden reveal-fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 py-8 px-6 lg:px-12 w-full mx-auto">
                 
-                <!-- Teks Tambahan Berdasarkan Gambar (Kata "terima kasih" biasa dihapus) -->
-                <div class="relative z-10 mb-6 max-w-sm mx-auto text-sm opacity-90 leading-relaxed font-medium">
+                <section class="reveal-fade-up h-full">
+                    <div class="bg-white/95 rounded-3xl shadow-xl shadow-sage/20 border border-sage/30 p-8 text-center relative overflow-hidden h-full flex flex-col justify-center">
+                        <h3 class="font-serif text-2xl lg:text-3xl font-bold text-darksage mb-5">Waktu & Tempat</h3>
+                        
+                        <div class="mb-4">
+                            <p class="text-gold font-bold uppercase tracking-wider text-sm lg:text-base mb-1">Jumat</p>
+                            <p class="font-serif text-5xl lg:text-6xl font-bold text-darksage drop-shadow-sm">29</p>
+                            <p class="text-gray-600 font-medium mt-1 lg:text-lg">Mei 2026</p>
+                        </div>
+
+                        <div class="mb-5 border-t border-b border-gray-100 py-3">
+                            <p class="text-base lg:text-lg text-gray-800 font-bold">Pukul 11.00 WITA - 17.00 WITA</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-center text-terracotta mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-8 lg:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-darksage mb-2 lg:text-lg">Alamat Rumah Baru Kami</h4>
+                            <p class="text-sm lg:text-base text-gray-600 leading-relaxed font-medium">
+                                Jl. Mapala (Samping IKIP)<br>
+                                Komp. Graha Mapala Permai, Blok B No. 4<br>
+                                Makassar
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="reveal-fade-up h-full">
+                    <div class="bg-white/95 rounded-3xl shadow-xl shadow-sage/20 border border-sage/30 p-6 lg:p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
+                        <h3 class="font-serif text-2xl lg:text-3xl font-bold text-darksage mb-5 text-center">Peta Lokasi</h3>
+                        <div class="relative w-full flex-grow rounded-2xl overflow-hidden min-h-[250px] lg:min-h-[300px]">
+                            <iframe 
+                                src="https://maps.google.com/maps?q=Jl.%20Mapala%20komp.%20Graha%20Mapala%20Permai%20Blok%20B%20No.4%20Makassar&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                                class="absolute top-0 left-0 w-full h-full border-0" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Jl.+Mapala+Komp.+Graha+Mapala+Permai+Blok+B+No.4+Makassar" target="_blank" class="inline-block bg-white border-2 border-darksage text-darksage hover:bg-darksage hover:text-white transition py-3 px-8 rounded-full text-sm lg:text-base font-bold shadow-sm relative z-10 w-full sm:w-auto">
+                                Buka Rute di Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </div> <div class="w-full max-w-[250px] lg:max-w-[400px] mx-auto text-sage opacity-50 mb-8 mt-4 reveal-zoom">
+                <svg viewBox="0 0 400 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M200,6 L205,12 L200,18 L195,12 Z" fill="currentColor" stroke="none"/>
+                    <path d="M40,12 L185,12" stroke-width="1.5" /><path d="M40,15 L180,15" stroke-width="0.5" /><path d="M40,9 L180,9" stroke-width="0.5" /><path d="M40,12 C25,12 20,4 10,8 C0,12 10,20 20,16 C30,12 25,6 15,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M360,12 L215,12" stroke-width="1.5" /><path d="M360,15 L220,15" stroke-width="0.5" /><path d="M360,9 L220,9" stroke-width="0.5" /><path d="M360,12 C375,12 380,4 390,8 C400,12 390,20 380,16 C370,12 375,6 385,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <section class="py-16 lg:py-24 px-6 bg-darksage text-white text-center rounded-t-[3rem] lg:rounded-t-[5rem] shadow-inner relative overflow-hidden reveal-fade-up">
+                
+                <div class="relative z-10 mb-8 max-w-sm lg:max-w-lg mx-auto text-sm lg:text-base opacity-90 leading-relaxed font-medium">
                     <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila</p>
-                    <p class="my-1 font-bold">Bapak/Ibu/Sdr/i</p>
+                    <p class="my-2 font-bold lg:text-lg">Bapak/Ibu/Sdr/i</p>
                     <p>berkenan untuk menghadiri undangan kami.</p>
-                    <!-- Teks ini langsung menyambung ke font glow di bawahnya -->
                     <p class="mt-4">Atas kehadiran dan perhatiannya, kami ucapkan</p>
                 </div>
 
-                <!-- Teks Terima Kasih dengan Font Glow -->
-                <p class="font-script text-5xl text-gold mb-4 relative z-10 glow-text">Terima Kasih</p>
+                <p class="font-script text-5xl lg:text-7xl text-gold mb-4 relative z-10 glow-text">Terima Kasih</p>
                 
-                <p class="text-sm opacity-90 relative z-10">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                <p class="text-sm lg:text-base opacity-90 relative z-10">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
                 
-                <div class="mt-10 pb-4 relative z-10">
-                    <p class="text-sm opacity-90 mb-3 font-medium">Hormat Kami,</p>
-                    <p class="font-serif font-bold text-lg leading-relaxed">
+                <div class="mt-12 lg:mt-16 pb-6 relative z-10">
+                    <p class="text-sm lg:text-base opacity-90 mb-4 font-medium">Hormat Kami,</p>
+                    <p class="font-serif font-bold text-lg lg:text-2xl leading-relaxed">
                         Dr. Nur Kautsar Hasan, S.H., M.H.<br>
-                        <span class="text-gold text-base font-normal font-script mx-2">&</span><br>
+                        <span class="text-gold text-base lg:text-xl font-normal font-script mx-2 lg:mx-4">&</span><br>
                         Salmirati, S.H., M.H.
                     </p>
                 </div>
@@ -298,10 +267,9 @@
             </section>
         </div>
 
-        <!-- FOOTER -->
         <footer class="bg-gray-50 border-t border-gray-200 relative z-20">
             <div class="py-2 px-6 text-xs text-gray-500 font-medium text-center tracking-wide">
-                Copyright@asjar
+                Copyright@ASJAR
             </div>
             <div class="h-1.5 w-full bg-[#2d3139]"></div>
         </footer>
@@ -371,31 +339,25 @@
             isPlaying = !isPlaying;
         }
 
-        // 5. Animasi Buka Undangan (Otomatis Putar Musik)
+        // 5. Animasi Buka Undangan
         function openInvitation() {
-            // Sembunyikan Cover
             const cover = document.getElementById('cover-overlay');
             cover.classList.add('cover-hidden');
             
-            // Tampilkan Konten
             const mainContent = document.getElementById('main-content');
             mainContent.classList.remove('hidden');
             document.getElementById('body').classList.remove('overflow-hidden');
             
-            // Scroll ke atas
             window.scrollTo(0, 0);
             
-            // Tampilkan & Putar Musik
             musicBtn.classList.remove('hidden');
             bgMusic.play().then(() => {
                 isPlaying = true;
                 musicIcon.classList.add('spin-slow');
             }).catch((error) => {
-                // Browser terkadang memblokir autoplay jika interaksi kurang
                 console.log("Auto-play dicegah oleh browser, butuh interaksi manual.");
             });
 
-            // Aktifkan scroll animasi
             setTimeout(initScrollReveal, 300);
         }
     </script>
