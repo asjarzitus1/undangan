@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Tasyakuran Rumah Baru</title>
     
+    <!-- Konfigurasi Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,6 +31,7 @@
         }
     </script>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -74,7 +76,7 @@
 
         /* Overlay Blink Background */
         #scroll-blink-overlay {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -92,19 +94,22 @@
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="font-sans text-gray-800 antialiased bg-gray-100 overflow-x-hidden" id="body">
+<body class="font-sans text-gray-800 antialiased bg-gray-100 overflow-x-hidden min-h-screen" id="body">
 
+    <!-- ELEMEN AUDIO MUSIK LATAR -->
     <audio id="bg-music" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=relaxing-mountains-rivers-streams-111162.mp3" type="audio/mpeg">
         Browser Anda tidak mendukung elemen audio.
     </audio>
 
+    <!-- TOMBOL MUSIK MELAYANG -->
     <button id="music-btn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-50 bg-white/80 backdrop-blur-sm border border-gold p-3 rounded-full shadow-xl text-gold hover:bg-gold hover:text-white transition duration-300 hidden">
         <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v5.586l-2.707 2.707 1.414 1.414L13 13.414V7z"/>
         </svg>
     </button>
 
+    <!-- 1. COVER / HALAMAN DEPAN -->
     <div id="cover-overlay" class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-sage floral-bg text-center p-6">
         <div class="bg-white/95 p-8 rounded-3xl shadow-2xl max-w-lg w-full border-2 border-gold/40 fade-in relative overflow-hidden">
             <div class="flex justify-center mb-4 text-terracotta">
@@ -134,11 +139,13 @@
         </div>
     </div>
 
-    <main id="main-content" class="w-full max-w-4xl mx-auto bg-lightbg floral-bg min-h-screen shadow-2xl hidden flex flex-col relative overflow-hidden">
+    <!-- 2. KONTEN UTAMA UNDANGAN (Telah Disesuaikan Jarak Bawahnya) -->
+    <main id="main-content" class="w-full max-w-4xl mx-auto bg-lightbg floral-bg shadow-2xl hidden relative overflow-hidden">
         
         <div id="scroll-blink-overlay"></div>
 
-        <div class="flex-grow relative z-10">
+        <div class="relative z-10">
+            <!-- Header Pembuka -->
             <header class="pt-16 pb-8 px-6 lg:px-16 text-center text-darksage">
                 
                 <div class="reveal-zoom mb-12">
@@ -173,6 +180,7 @@
                 </div>
             </header>
 
+            <!-- Garis Pemisah 1 -->
             <div class="w-full max-w-[250px] lg:max-w-[400px] mx-auto text-sage opacity-50 my-4 reveal-zoom">
                 <svg viewBox="0 0 400 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M200,6 L205,12 L200,18 L195,12 Z" fill="currentColor" stroke="none"/>
@@ -181,8 +189,10 @@
                 </svg>
             </div>
 
+            <!-- Grid Layout untuk Waktu & Peta -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 py-8 px-6 lg:px-12 w-full mx-auto">
                 
+                <!-- Detail Acara (Kolom Kiri) -->
                 <section class="reveal-fade-up h-full">
                     <div class="bg-white/95 rounded-3xl shadow-xl shadow-sage/20 border border-sage/30 p-8 text-center relative overflow-hidden h-full flex flex-col justify-center">
                         <h3 class="font-serif text-2xl lg:text-3xl font-bold text-darksage mb-5">Waktu & Tempat</h3>
@@ -214,6 +224,7 @@
                     </div>
                 </section>
 
+                <!-- Peta Lokasi (Kolom Kanan) -->
                 <section class="reveal-fade-up h-full">
                     <div class="bg-white/95 rounded-3xl shadow-xl shadow-sage/20 border border-sage/30 p-6 lg:p-8 text-center relative overflow-hidden h-full flex flex-col justify-between">
                         <h3 class="font-serif text-2xl lg:text-3xl font-bold text-darksage mb-5 text-center">Peta Lokasi</h3>
@@ -234,7 +245,10 @@
                     </div>
                 </section>
 
-            </div> <div class="w-full max-w-[250px] lg:max-w-[400px] mx-auto text-sage opacity-50 mb-8 mt-4 reveal-zoom">
+            </div>
+
+            <!-- Garis Pemisah Akhir -->
+            <div class="w-full max-w-[250px] lg:max-w-[400px] mx-auto text-sage opacity-50 mb-8 mt-4 reveal-zoom">
                 <svg viewBox="0 0 400 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M200,6 L205,12 L200,18 L195,12 Z" fill="currentColor" stroke="none"/>
                     <path d="M40,12 L185,12" stroke-width="1.5" /><path d="M40,15 L180,15" stroke-width="0.5" /><path d="M40,9 L180,9" stroke-width="0.5" /><path d="M40,12 C25,12 20,4 10,8 C0,12 10,20 20,16 C30,12 25,6 15,6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -242,6 +256,8 @@
                 </svg>
             </div>
 
+            <!-- PENUTUP & NAMA HORMAT KAMI -->
+            <!-- Bagian ini akan menempel langsung ke footer di bawahnya -->
             <section class="py-16 lg:py-24 px-6 bg-darksage text-white text-center rounded-t-[3rem] lg:rounded-t-[5rem] shadow-inner relative overflow-hidden reveal-fade-up">
                 
                 <div class="relative z-10 mb-8 max-w-sm lg:max-w-lg mx-auto text-sm lg:text-base opacity-90 leading-relaxed font-medium">
@@ -255,7 +271,7 @@
                 
                 <p class="text-sm lg:text-base opacity-90 relative z-10">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
                 
-                <div class="mt-12 lg:mt-16 pb-6 relative z-10">
+                <div class="mt-12 lg:mt-16 relative z-10">
                     <p class="text-sm lg:text-base opacity-90 mb-4 font-medium">Hormat Kami,</p>
                     <p class="font-serif font-bold text-lg lg:text-2xl leading-relaxed">
                         Dr. Nur Kautsar Hasan, S.H., M.H.<br>
@@ -265,10 +281,11 @@
                 </div>
 
             </section>
-        </div>
+        </div> <!-- End of content wrapper -->
 
+        <!-- FOOTER -->
         <footer class="bg-gray-50 border-t border-gray-200 relative z-20">
-            <div class="py-2 px-6 text-xs text-gray-500 font-medium text-center tracking-wide">
+            <div class="py-3 px-6 text-xs text-gray-500 font-medium text-center tracking-wide">
                 Copyright@ASJAR
             </div>
             <div class="h-1.5 w-full bg-[#2d3139]"></div>
